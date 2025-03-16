@@ -50,4 +50,14 @@ require("packer").startup(function(use)
 
   use({ "stevearc/conform.nvim" })
   use({ "folke/lazydev.nvim" })
+  use({
+    "nvim-neotest/neotest",
+    requires = {
+      "nvim-neotest/nvim-nio",
+      "nvim-neotest/neotest-python",
+      "nvim-lua/plenary.nvim",
+      "autoinemadec/FixCursorHold.nvim",
+      "nvim-treesitter/nvim-treesitter",
+    },
+  })
 end)
