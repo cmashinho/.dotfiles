@@ -28,4 +28,4 @@ fi
 
 # we're probably being piped to a shell (ftp -o - .. | sh -) so this
 # won't work running it ourselves
-echo "vim +PackerInstall +qall"
+echo "nvim +PackerSync +qall"
