@@ -12,7 +12,7 @@ else
 fi
 
 cd ~/.dotfiles
-for f in .???* bin tmux.conf; do
+for f in .???* bin; do
 	case "$f" in
 		.git) continue ;;
 		.gitignore) continue ;;
