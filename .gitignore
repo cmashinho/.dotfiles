@@ -1,0 +1,15 @@
+*
+!move_in.sh
+!.xsession
+!.Xresources
+!.zshrc
+!.gitignore
+
+!.config/cmus/*
+!.config/nvim/*
+!.config/polybar/*
+!.config/i3/*
+!.config/picom/*
+!.config/user-dirs.dirs
+
+.config/nvim/plugin/packer_compiled.lua
