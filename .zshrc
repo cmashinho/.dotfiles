@@ -5,8 +5,17 @@ export EDITOR="nvim"
 
 ZSH_THEME="robbyrussell"
 
+if [ -f ~/.katarc ]; then
+	source ~/.katarc
+fi
+
 export ZSH_FZF_HISTORY_SEARCH_FZF_EXTRA_ARGS="--no-color"
-plugins=(git z zsh-fzf-history-search)
+
+if [[ -z "${KATA_HOME}" ]]; then
+	plugins=(git z zsh-fzf-history-search zsh-venv-switcher)
+else
+	plugins=(git z zsh-fzf-history-search)
+fi
 
 source $ZSH/oh-my-zsh.sh
 
