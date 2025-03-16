@@ -2,7 +2,7 @@ require("lazydev").setup()
 
 local cmp = require "cmp"
 local lspkind = require "lspkind"
-local luasnip = require('luasnip')
+local luasnip = require "luasnip"
 local kata_plugin = require "cmashinho.plugins.kata_package_picker"
 -- TODO: move to other place?
 kata_plugin.setup()
@@ -12,10 +12,9 @@ lspkind.init {
   preset = "codicons",
 }
 
-require('luasnip.loaders.from_vscode').lazy_load({
-  exclude = { 'javascript' }
-})
-
+require("luasnip.loaders.from_vscode").lazy_load {
+  exclude = { "javascript" },
+}
 
 local cmp_select = { behavior = cmp.SelectBehavior.Select }
 local cmp_mappings = cmp.mapping.preset.insert {
@@ -27,7 +26,7 @@ local cmp_mappings = cmp.mapping.preset.insert {
     else
       fallback()
     end
-  end, { 'i', 's' }),
+  end, { "i", "s" }),
   ["<C-n>"] = cmp.mapping(function(fallback)
     if cmp.visible() then
       cmp.select_next_item(cmp_select)
@@ -36,9 +35,9 @@ local cmp_mappings = cmp.mapping.preset.insert {
     else
       fallback()
     end
-  end, { 'i', 's' }),
+  end, { "i", "s" }),
   ["<C-y>"] = cmp.mapping(function()
-    cmp.confirm({ select = true })
+    cmp.confirm { select = true }
   end),
   ["<C-Space>"] = cmp.mapping.complete(),
   ["<Tab>"] = nil,
@@ -72,7 +71,7 @@ require("mason-lspconfig").setup {
     end,
 
     clangd = function()
-      require('lspconfig').clangd.setup({})
+      require("lspconfig").clangd.setup {}
     end,
     pylsp = function()
       require("lspconfig").pylsp.setup {
@@ -94,7 +93,7 @@ require("mason-lspconfig").setup {
               pylint = {
                 enabled = true,
                 -- args = { "--rcfile /home/sheldyaev/code/job/kata-dev4.0-poc/.pylintrc" },
-                args = { "--disable=C,W,R" }
+                args = { "--disable=C,W,R" },
               },
               pylsp_mypy = {
                 live_mode = false,
@@ -126,7 +125,7 @@ require("mason-lspconfig").setup {
               },
               jedi_completion = {
                 include_params = true,
-              }
+              },
             },
             configurationSources = { "flake8" },
           },
@@ -154,10 +153,9 @@ local autocmd = require("cmashinho.auto").autocmd
 local autocmd_clear = vim.api.nvim_clear_autocmds
 local augroup_highlight = vim.api.nvim_create_augroup("custom-lsp-references", { clear = true })
 
-
 local lspconfig_defaults = require("lspconfig").util.default_config
 lspconfig_defaults.capabilities =
-    vim.tbl_deep_extend("force", lspconfig_defaults.capabilities, require("cmp_nvim_lsp").default_capabilities())
+  vim.tbl_deep_extend("force", lspconfig_defaults.capabilities, require("cmp_nvim_lsp").default_capabilities())
 
 vim.api.nvim_create_autocmd("LspAttach", {
   desc = "LSP actions",
@@ -175,7 +173,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
       vim.lsp.buf.type_declaration()
     end, opts)
     vim.keymap.set("n", "K", function()
-      vim.lsp.buf.hover({ border = "single" })
+      vim.lsp.buf.hover { border = "single" }
     end, opts)
     vim.keymap.set("n", "<leader>vws", function()
       vim.lsp.buf.workspace_symbol()
@@ -184,10 +182,10 @@ vim.api.nvim_create_autocmd("LspAttach", {
       vim.diagnostic.open_float()
     end, opts)
     vim.keymap.set("n", "<M-j>", function()
-      vim.diagnostic.goto_next()
+      vim.diagnostic.jump { count = -1, float = true }
     end, opts)
     vim.keymap.set("n", "<M-k>", function()
-      vim.diagnostic.goto_prev()
+      vim.diagnostic.jump { count = 1, float = true }
     end, opts)
     vim.keymap.set("n", "<leader>ca", function()
       vim.lsp.buf.code_action()
