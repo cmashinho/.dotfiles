@@ -5,6 +5,8 @@ export MOZ_WEBRENDER=1
 
 export LANG=en_US.UTF-8
 
+xrdb -DHOME=$HOME < ~/.Xresources
+
 xset r rate 250 40
 setxkbmap -layout us,ru -option 'grp:caps_toggle'
 
