@@ -49,3 +49,18 @@ xnoremap("<leader>p", '"_dP')
 nnoremap("<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 --
 -- nnoremap("<leader><leader>x", "<cmd>source %<CR>")
+nnoremap("<leader>tt", function()
+  require('neotest').run.run()
+end)
+
+nnoremap("<leader>ts", function()
+  require('neotest').run.stop()
+end)
+
+nnoremap("<leader>ts", function()
+  require('neotest').run.attach()
+end)
+
+nnoremap("<leader>tf", function()
+  require('neotest').run.run(vim.fn.expand('%'))
+end)
