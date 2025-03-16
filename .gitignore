@@ -1,4 +1,5 @@
 *
+!bin/*
 !move_in.sh
 !.xsession
 !.Xresources
