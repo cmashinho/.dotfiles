@@ -1,5 +1,5 @@
 export ZSH="$HOME/.oh-my-zsh"
-export PATH="/opt/nvim-linux64/bin:$PATH"
+export PATH="/opt/nvim-linux64/bin:$HOME/bin:$PATH"
 export MANPAGER="nvim +Man!"
 export EDITOR="nvim"
 
