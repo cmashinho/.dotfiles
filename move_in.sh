@@ -13,7 +13,7 @@ fi
 
 cd ~/.dotfiles
 for f in .???*; do
-	rm -f ~/$f
+	rm -f ~/$f || true
 	(cd ~/; ln -s .dotfiles/$f $f)
 done
 
