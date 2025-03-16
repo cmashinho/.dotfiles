@@ -134,7 +134,9 @@ end
 local function get_all_python_sources()
   local custom_paths = {}
   for index in pairs(CACHED_DATA) do
-    table.insert(custom_paths, CACHED_DATA[index][2])
+    if not string.find(CACHED_DATA[index][1], "_schemas") then
+      table.insert(custom_paths, CACHED_DATA[index][2])
+    end
   end
   return custom_paths
 end
