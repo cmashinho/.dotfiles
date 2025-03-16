@@ -1,6 +1,5 @@
 ! vim:ts=8
 
-#ifdef HIDPI
 ! pkg_add xcursor-dmz
 Xcursor.theme:			dmz
 Xcursor.size:			64
@@ -59,11 +58,7 @@ URxvt.color15:			#e5e5e5
 
 ! urxvt-specific settings
 
-#ifdef HIDPI
 URxvt.internalBorder:		24
-#else
-URxvt.internalBorder:		12
-#endif
 URxvt.utmpInhibit:		true
 URxvt.loginShell:		true
 URxvt.saveLines:		20000
@@ -106,14 +101,12 @@ URxvt.perl-ext:			-confirm-paste,ls_l,warn_on_close
 
 SshAskpass*inputTimeout:	15
 
-#ifdef HIDPI
 SshAskpass*Button.font:		-*-lucida-medium-r-*-*-32-*-*-*-*-*-*-*
 SshAskpass*Dialog.font:		-*-lucida-medium-r-*-*-36-*-*-*-*-*-*-*
 SshAskpass*Indicator.width:	40
 SshAskpass*Indicator.height:	20
 SshAskpass*defaultXResolution:	200/in
 SshAskpass*defaultYResolution:	200/in
-#endif
 
 XClock*.update:			1
 XClock*.analog:			False
