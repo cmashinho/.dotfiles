@@ -41,7 +41,7 @@ floating_modifier $mod
 tiling_drag modifier titlebar
 
 # start a terminal
-bindsym $mod+space exec wezterm
+bindsym $mod+space exec urxvt
 bindsym $mod+q exec firefox
 
 # kill focused window
