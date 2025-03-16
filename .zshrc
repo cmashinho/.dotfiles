@@ -11,7 +11,7 @@ fi
 
 export ZSH_FZF_HISTORY_SEARCH_FZF_EXTRA_ARGS="--no-color"
 
-if [[ -z "${KATA_HOME}" ]]; then
+if [ -n "${KATA_HOME+1}" ]; then
 	plugins=(git z zsh-fzf-history-search zsh-venv-switcher)
 else
 	plugins=(git z zsh-fzf-history-search)
