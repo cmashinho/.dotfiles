@@ -68,3 +68,6 @@ hi ExtraWhitespace	cterm=reverse		ctermfg=185	ctermbg=NONE
 " mostly for nerdtree
 hi VertSplit		cterm=bold		ctermfg=240	ctermbg=NONE
 hi link @markup.raw.block.markdown NONE
+
+hi link manOptionDesc NONE
+hi manOptionDesc cterm=bold ctermfg=NONE
