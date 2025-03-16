@@ -1,0 +1,74 @@
+#!/usr/bin/env zsh
+
+get_current_raw() {
+	echo $(sndioctl -n output.level)
+}
+
+get_current() {
+	current=$(get_current_raw)
+	current=$(awk '{print $1*$2}' <<<"${current} 100")
+	echo $current
+}
+
+convert_to_percent() {
+	current=$(awk '{print $1*$2}' <<<"${1} 100")
+	echo $current
+}
+
+save_value() {
+	echo $1 > /tmp/bin_volume_data
+}
+
+restore_value() {
+	echo $(head -n 1 /tmp/bin_volume_data)
+}
+
+is_muted() {
+	if [[ $(sndioctl -n output.level) == '0.000' ]]; then
+		echo 1
+	else
+		echo 0
+	fi
+}
+
+do_restore_if_need() {
+	if [[ $(is_muted) == 1 ]]; then
+		sndioctl -q output.level=$(restore_value)
+	fi
+}
+
+case "$1" in
+up)
+	do_restore_if_need
+	sndioctl -q output.level=+0.025
+	;;
+down)
+	do_restore_if_need
+	sndioctl -q output.level=-0.025
+	;;
+mute)
+	if [[ $(is_muted) == 1 ]]; then
+		do_restore_if_need
+	else
+		save_value $(get_current_raw)
+		sndioctl -q output.level=0
+	fi
+	;;
+current)
+	echo $(get_current)
+	while read -r line
+		property=$(echo $line | cut -d"=" -f1)
+		if [[ ${property} == "output.level" ]]; then
+			property_value=$(echo $line | awk '$3 == "changed" { split($1,parsed_line,"="); print parsed_line[2] }')
+			if [[ $property_value != "" ]]; then
+				echo $(convert_to_percent $property_value)
+			fi
+		fi
+	do
+	done < <(sndioctl -m)
+	;;
+*)
+	echo "unknown command \"${1}\""
+	exit 1
+	;;
+esac
