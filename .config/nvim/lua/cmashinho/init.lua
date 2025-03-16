@@ -1,6 +1,6 @@
-require('cmashinho.packer')
-require('cmashinho.telescope')
-require('cmashinho.oil')
-require('cmashinho.mini')
-require('cmashinho.treesitter')
-require('cmashinho.neotest')
+require "cmashinho.packer"
+require "cmashinho.telescope"
+require "cmashinho.oil"
+require "cmashinho.mini"
+require "cmashinho.treesitter"
+require "cmashinho.neotest"
