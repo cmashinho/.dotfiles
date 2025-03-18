@@ -56,7 +56,7 @@ mute)
 	;;
 current)
 	echo $(get_current)
-	while read -r line
+	sndioctl -m | while read -r line
 		property=$(echo $line | cut -d"=" -f1)
 		if [[ ${property} == "output.level" ]]; then
 			property_value=$(echo $line | awk '$3 == "changed" { split($1,parsed_line,"="); print parsed_line[2] }')
@@ -65,7 +65,7 @@ current)
 			fi
 		fi
 	do
-	done < <(sndioctl -m)
+	done
 	;;
 *)
 	echo "unknown command \"${1}\""
