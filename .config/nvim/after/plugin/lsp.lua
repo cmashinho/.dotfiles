@@ -126,6 +126,10 @@ require("mason-lspconfig").setup {
               jedi_completion = {
                 include_params = true,
               },
+              pylsp_rope = {
+                enabled = true,
+                rename = true,
+              },
             },
             configurationSources = { "flake8" },
           },
@@ -188,6 +192,9 @@ vim.api.nvim_create_autocmd("LspAttach", {
       vim.diagnostic.jump { count = 1, float = true }
     end, opts)
     vim.keymap.set("n", "<leader>ca", function()
+      vim.lsp.buf.code_action()
+    end, opts)
+    vim.keymap.set("v", "<leader>ca", function()
       vim.lsp.buf.code_action()
     end, opts)
     vim.keymap.set("n", "<leader>cr", function()

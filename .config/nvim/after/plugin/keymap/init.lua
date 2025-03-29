@@ -1,4 +1,4 @@
-local Remap = require("cmashinho.keymap")
+local Remap = require "cmashinho.keymap"
 local nnoremap = Remap.nnoremap
 local vnoremap = Remap.vnoremap
 local inoremap = Remap.inoremap
@@ -50,17 +50,21 @@ nnoremap("<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 --
 -- nnoremap("<leader><leader>x", "<cmd>source %<CR>")
 nnoremap("<leader>tt", function()
-  require('neotest').run.run()
+  require("neotest").run.run()
 end)
 
 nnoremap("<leader>ts", function()
-  require('neotest').run.stop()
+  require("neotest").run.stop()
 end)
 
-nnoremap("<leader>ts", function()
-  require('neotest').run.attach()
+nnoremap("<leader>ta", function()
+  require("neotest").run.attach()
+end)
+
+nnoremap("<leader>to", function()
+  require("neotest").output.open { enter = true }
 end)
 
 nnoremap("<leader>tf", function()
-  require('neotest').run.run(vim.fn.expand('%'))
+  require("neotest").run.run(vim.fn.expand "%")
 end)
