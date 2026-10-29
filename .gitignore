@@ -6,6 +6,7 @@
 !.zshrc
 !.gitignore
 !.fonts.conf
+!.tmux.conf
 
 !.config/cmus/*
 !.config/nvim/*

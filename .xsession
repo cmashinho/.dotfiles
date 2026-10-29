@@ -2,6 +2,9 @@
 export MOZ_ACCELERATED=1
 # force webrender to enable
 export MOZ_WEBRENDER=1
+# enable wasm for chromium
+export ENABLE_WASM=1
+export AUDIORECDEVICE=mic
 
 export LANG=en_US.UTF-8
 
@@ -15,3 +18,4 @@ hsetroot -solid "#83988e"
 picom -b
 
 exec i3
+#exec fvwm
