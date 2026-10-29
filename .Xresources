@@ -24,40 +24,41 @@ Xft.dpi:			112
 ! solarized (light)
 
 ! black
-URxvt.color0:			FG
-URxvt.color8:			#333333
+*.color0:			FG
+*.color8:			#333333
 
 ! red
-URxvt.color1:			#dc322f
-URxvt.color9:			#cb4b16
+*.color1:			#dc322f
+*color9:			#cb4b16
 
 ! green
-URxvt.color2:			#859900
-URxvt.color10:			#93a1a1
+*color2:			#859900
+*color10:			#93a1a1
 
 ! yellow
-URxvt.color3:			#b58900
-URxvt.color11:			#839496
+*color3:			#b58900
+*color11:			#839496
 
 ! blue
-URxvt.color4:			#268bd2
-URxvt.color12:			#657b83
+*color4:			#268bd2
+*color12:			#657b83
 
 ! magenta
-URxvt.color5:			#d33682
-URxvt.color13:			#6c71c4
+*color5:			#d33682
+*color13:			#6c71c4
 
 ! cyan
-URxvt.color6:			#2aa198
-URxvt.color14:			#586e75
+*color6:			#2aa198
+*color14:			#586e75
 
 ! white (gray)
-URxvt.color7:			#d9d7cc
-URxvt.color15:			#e5e5e5
+*color7:			#d9d7cc
+*color15:			#e5e5e5
 
 
 ! urxvt-specific settings
 
+XTerm.vt100.internalBorder:	24
 URxvt.internalBorder:		24
 URxvt.utmpInhibit:		true
 URxvt.loginShell:		true
@@ -78,9 +79,21 @@ URxvt.scrollTtyKeypress:	true
 URxvt.geometry:			80x100
 
 
-XTerm.vt100.faceName:		monospace:size=12.5
-URxvt.font:			xft:monospace:size=12.5,xft:noto emoji:size=12.5
-URxvt.boldFont:			xft:monospace:weight=bold:size=12.5,xft:noto emoji:weight=bold:size=12.5
+! XTerm.vt100.faceName:		monospace:size=12.5
+XTerm.vt100.faceName:		xft:monospace:size=12.5:minspace=False,\
+				xft:JetBrains Mono Nerd Font:size=10.5:minspace=False,\
+				xft:noto emoji:size=12.5,\
+				xft:Unifont:size=12.5,\
+				-*-unifont-*-*-*-*-*-*-*-*-*-*-*-*
+URxvt.font:			xft:monospace:size=12.5:minspace=False,\
+				xft:JetBrains Mono Nerd Font:size=10.5:minspace=False,\
+				xft:noto emoji:size=12.5,\
+				xft:Unifont:size=12.5,\
+				-*-unifont-*-*-*-*-*-*-*-*-*-*-*-*
+URxvt.boldFont:			xft:monospace:weight=bold:size=12.5,\
+				xft:noto emoji:weight=bold:size=12.5,\
+				xft:Unifont:size=12.5,\
+				-*-unifont-*-*-*-*-*-*-*-*-*-*-*-*
 URxvt.letterSpace:		-1
 URxvt.geometry:			100x100
 
@@ -98,6 +111,9 @@ URxvt.matcher.rend.0:		Uline
 
 ! disable paste warning
 URxvt.perl-ext:			-confirm-paste,ls_l,warn_on_close
+! URxvt.inheritPixmap:		true
+! URxvt.transparent:		true
+! URxvt.shading:			101
 
 SshAskpass*inputTimeout:	15
 
@@ -115,3 +131,11 @@ XClock*.padding:		40
 XClock*.face:			Microsoft Sans Serif:size=20
 XClock*.strftime:		%a %b %d  %H:%M
 XClock*.background:		#c0c7c8
+
+XTerm.vt100.scrollBar:		false
+XTerm.vt100.alternateScroll:	true
+XTerm.vt100.translations:	#override \n\
+	Ctrl Shift <Key>C:	copy-selection(CLIPBOARD) \n\
+	Ctrl Shift <Key>V:	insert-selection(CLIPBOARD) \n\
+	<Btn4Down>:		scroll-back(3, line) \n\
+	<Btn5Down>:		scroll-forw(3, line)
