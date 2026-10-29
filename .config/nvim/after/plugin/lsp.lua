@@ -48,6 +48,7 @@ cmp.setup {
   sources = {
     { name = "nvim_lsp" },
     { name = "buffer" },
+    -- { name = "tags" },
     { name = "luasnip" },
   },
   mapping = cmp_mappings,
@@ -64,14 +65,17 @@ local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 require("mason").setup {}
 require("mason-lspconfig").setup {
-  ensure_installed = { "lua_ls", "pylsp" },
+  ensure_installed = { "lua_ls", "pylsp", "gopls", "golangci_lint_ls" },
   handlers = {
-    function(server_name)
-      require("lspconfig")[server_name].setup {}
-    end,
+    -- function(server_name)
+    --   require("lspconfig")[server_name].setup {}
+    -- end,
 
-    clangd = function()
-      require("lspconfig").clangd.setup {}
+    -- clangd = function()
+    --   require("lspconfig").clangd.setup {}
+    -- end,
+    golangci_lint_ls = function()
+      require("lspconfig").golangci_lint_ls.setup {}
     end,
     pylsp = function()
       require("lspconfig").pylsp.setup {
@@ -222,3 +226,9 @@ vim.api.nvim_create_autocmd("LspAttach", {
 vim.diagnostic.config {
   virtual_text = true,
 }
+
+-- vim.lsp.config("ctags-lsp", {
+--   cmd = { "ctags-lsp", "--tagfile", "/usr/src/sys/arch/amd64/tags" },
+--   filetypes = { "c" },
+-- })
+-- vim.lsp.enable "ctags-lsp"

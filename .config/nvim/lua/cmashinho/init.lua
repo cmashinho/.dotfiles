@@ -4,3 +4,7 @@ require "cmashinho.oil"
 require "cmashinho.mini"
 require "cmashinho.treesitter"
 require "cmashinho.neotest"
+require "cmashinho.terminal"
+require "cmashinho.common"
+
+vim.cmd "set tags=/usr/src/sys/arch/amd64/tags"

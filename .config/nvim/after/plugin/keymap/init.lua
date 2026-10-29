@@ -3,8 +3,10 @@ local nnoremap = Remap.nnoremap
 local vnoremap = Remap.vnoremap
 local inoremap = Remap.inoremap
 local xnoremap = Remap.xnoremap
+local cnoremap = Remap.cnoremap
 local nmap = Remap.nmap
 
+cnoremap("w!!", "w !doas tee >/dev/null %")
 nmap("<leader>pv", ":Oil<CR>")
 
 vnoremap("J", ":m '>+1<CR>gv=gv")

@@ -23,7 +23,7 @@ require("packer").startup(function(use)
   use { "nvim-tree/nvim-web-devicons" }
   use { "stevearc/oil.nvim", dependencies = { "nvim-tree/nvim-web-devicons", opt = {} } }
   use { "nvim-treesitter/nvim-treesitter" }
-  use { "nvim-treesitter/nvim-treesitter-refactor" }
+  use { "neovim-treesitter/treesitter-parser-registry" }
 
   use {
     "VonHeikemen/lsp-zero.nvim",
@@ -36,6 +36,7 @@ require("packer").startup(function(use)
 
       -- Autocompletion
       { "hrsh7th/nvim-cmp" },
+      { "quangnguyen30192/cmp-nvim-tags" },
       { "hrsh7th/cmp-buffer" },
       { "hrsh7th/cmp-path" },
       { "saadparwaiz1/cmp_luasnip" },
